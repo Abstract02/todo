@@ -1,0 +1,50 @@
+body {
+  background: #171717;
+}
+
+.todo_list {
+  color: #FFFFFF;
+  margin: 2%;
+}
+
+.todo_list>h1 {
+  margin: auto;
+  width: max-content;
+}
+.add_task{
+  margin-left: 7%;
+  margin-right: 35%;
+}
+.add_task_text{
+  color: #FFFFFF;
+}
+.create_task{
+  display: flex; 
+  margin-top: 5%;
+}
+.task_title{
+  width: 80%;
+}
+.task_title>input{
+  width: 85%;
+  background-color: #8d939e;
+  color: #FFFFFF;
+  border-radius: 3px;
+  padding: 7px;
+}
+.submit_task{
+  width: 20%;
+}
+.submit_task>button{
+  width: 100%;
+  height: 100%;
+  background: #C620A7;
+  color: #FFFFFF;
+  border-radius: 5px;
+}
+.tasks_section{
+  margin: 5% 7%;
+}
+.taskSectionTitle>p{
+  color: #FFFFFF;
+}
