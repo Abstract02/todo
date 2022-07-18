@@ -1,6 +1,55 @@
-.taskBox{
+.taskBox {
+    width: 30%;
     background: #2F2F2F;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px black;
 }
-.taskBoxUpper{
+
+.taskBoxUpper {
+    padding: 25px 25px;
+}
+
+.taskBoxUpper>p {
+    color: #FFFFFF;
+    margin: 0%;
+}
+
+.dividingLine {
+    width: 100%;
+    border-bottom: 1.75px solid #5c5c5c;
+
+
+}
+
+.taskBoxLower {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 15px 25px;
+}
+
+.markCompleted {
+    width: 65%;
+    padding: 5px 5px;
+}
+
+.markCompleted>button {
+    width: 100%;
+    height: 100%;
+    background: #C620A7;
+    color: #FFFFFF;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+.deleteTask>button{
+    width: 100%;
+    height: 100%;
+    background: #2F2F2F;
+    color: #FFFFFF;
+    padding: 8px;
+    border: none;
 }
