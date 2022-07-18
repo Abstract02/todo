@@ -17,7 +17,7 @@ function Complete({ id, completed }) {
             status.completed=true;
             console.log(status)
             axios
-                .patch(`http://localhost:4000/todos/${id}`, status)
+                .patch(`https://to-do-appp.herokuapp.com/todos/${id}`, status)
                 .then(() => {
                     console.log("task updated")
                     window.location.href = '/';
