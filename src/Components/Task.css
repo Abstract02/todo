@@ -1,27 +1,49 @@
-.taskBox {
-    width: 30%;
+.taskBoxincomplete {
+    width: 90%;
     background: #2F2F2F;
     display: flex;
     flex-direction: column;
     margin: 10px;
     border-radius: 10px;
-    box-shadow: 0px 0px 15px black;
+    box-shadow: 0px 0px 16px rgba(0, 0,0,0.8);
+}
+.taskBoxcomplete {
+    width: 90%;
+    background: #202020;
+    border: 1.5px #7AB530 solid;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    border-radius: 10px;
 }
 
 .taskBoxUpper {
     padding: 25px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 
 .taskBoxUpper>p {
     color: #FFFFFF;
     margin: 0%;
 }
 
+.CheckCircle{
+    background-color: #202020;
+    color: #7AB530;
+    height: 24px;
+    width: 24px;
+    position: relative;
+    left: 38px;
+    border-radius: 100%;
+
+}
+
 .dividingLine {
     width: 100%;
     border-bottom: 1.75px solid #5c5c5c;
-
-
 }
 
 .taskBoxLower {
@@ -36,7 +58,7 @@
     padding: 5px 5px;
 }
 
-.markCompleted>button {
+.incomplete {
     width: 100%;
     height: 100%;
     background: #C620A7;
@@ -45,11 +67,21 @@
     border-radius: 5px;
     border: none;
 }
+.completed{
+    width: 100%;
+    height: 100%;
+    background: #202020;
+    color: #FFFFFF;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    
+}
 .deleteTask>button{
     width: 100%;
     height: 100%;
-    background: #2F2F2F;
-    color: #FFFFFF;
+    background: none;
+    color: #AFAFAF;
     padding: 8px;
     border: none;
 }

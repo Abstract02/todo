@@ -9,6 +9,7 @@ body {
 }
 
 .todo_list>h1 {
+  font-family: 'Roboto', sans-serif;
   margin: auto;
   width: max-content;
 }
@@ -46,10 +47,14 @@ body {
   height: 100%;
   background: #C620A7;
   color: #FFFFFF;
+  border: none;
   border-radius: 5px;
 }
+.submit_task>button:hover{
+  cursor: pointer;
+}
 .tasks_section{
-  margin: 5% 7%;
+  margin: 6% 6%;
 }
 .taskSectionTitle>p{
   color: #FFFFFF;
@@ -59,4 +64,17 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   
+}
+.content{
+  width: 33%;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 15px;
+
+}
+.index{
+  width: 5%;
+  padding: 20px 3px;
+  color: #FFFFFF;
+  margin-left: 10px;
 }

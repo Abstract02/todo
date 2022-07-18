@@ -1,15 +1,12 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
+import Complete from './Complete'
 import './Task.css'
+import {BsCheckCircleFill} from 'react-icons/bs'
 
 function Task({ id, title, completed }) {
 
-  useEffect(() => {
-    if (completed === true) {
-      document.getElementById("box").style.background = '#202020'
-      document.getElementById("complete").style.background = '#202020'
-    }
-  }, [])
+
 
 
   const Delete = () => {
@@ -23,40 +20,22 @@ function Task({ id, title, completed }) {
         console.log(`error is ${err}`)
       })
   }
+  
 
-  const taskStatus = () => {
-    if (completed === false) {
-      const task = {
-        "completed": true
-      }
-      console.log(task)
-      axios
-        .patch(`http://localhost:4000/todos/${id}`, task)
-        .then(() => {
-          console.log("task updated")
-
-          window.location.href = "/";
-        })
-        .catch(err => {
-          console.log(`error is ${err}`)
-        })
-    }
-    else {
-      console.log("Already Completed")
-    }
-  }
 
   return (
 
-    <div id="box" className='taskBox'>
+    <div id="box" className={completed ? "taskBoxcomplete" : "taskBoxincomplete"}>
       <div className='taskBoxUpper'>
         <p>{title}</p>
+        {completed?<BsCheckCircleFill className='CheckCircle' />:null}
       </div>
       <div className='dividingLine'></div>
       <div className='taskBoxLower'>
-        <div className='markCompleted'>
-          <button id="complete" type='sunmit' onClick={taskStatus}>Mark as completed</button>
-        </div>
+        <Complete
+          id={id}
+          completed={completed}
+        />
         <div className='deleteTask'>
           <button type='submit' onClick={Delete}>Delete</button>
         </div>

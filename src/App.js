@@ -5,7 +5,7 @@ import Task from './Components/Task';
 
 function App() {
 
-  const [task, settask] = useState()
+  const [task, settask] = useState({})
   const [data,setdata] = useState([])
 
   const handleChange = (e) => {
@@ -33,7 +33,7 @@ function App() {
     if (task.length > 0) {
       axios.post("http://localhost:4000/todos", todoTask)
         .then(() => {
-          console.log("api post sucess")
+          console.log("api post success")
           settask("");
           window.location.href = "/";
         }).catch(err => {
@@ -57,7 +57,7 @@ function App() {
         </div>
         <div className='create_task'>
           <div className='task_title'>
-            <input type="text" value={task} onChange={handleChange} placeholder='Enter the task here' name="title"></input>
+            <input type="text" onChange={handleChange} placeholder='Enter the task here' name="title"></input>
           </div>
           <div className='submit_task'>
             <button type='submit' onClick={submit}>Submit</button>
@@ -72,11 +72,20 @@ function App() {
           {
             data.map((taskdata,i) => {
               return(
+                <>
+                <div className='content'>
+                <div className='index'>
+                  <p>
+                  {i+1}.
+                  </p>
+                </div>
                 <Task
                 id = {taskdata._id}
                 title = {taskdata.title}
                 completed = {taskdata.completed}
                 /> 
+                </div>
+                </>
               )
             })
           }          
