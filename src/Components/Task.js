@@ -11,7 +11,7 @@ function Task({ id, title, completed }) {
 
   const Delete = () => {
     axios
-      .delete(`http://localhost:4000/todos/${id}`)
+      .delete(`https://to-do-appp.herokuapp.com/todos${id}`)
       .then(() => {
         console.log("task deleted")
         window.location.href = '/';

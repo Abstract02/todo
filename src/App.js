@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/todos")
+      .get("https://to-do-appp.herokuapp.com/todos")
       .then((res)=>{
         const data = res.data;
         setdata(data);
@@ -31,7 +31,7 @@ function App() {
     }
     console.log(task.length)
     if (task.length > 0) {
-      axios.post("http://localhost:4000/todos", todoTask)
+      axios.post("https://to-do-appp.herokuapp.com/todos", todoTask)
         .then(() => {
           console.log("api post success")
           settask("");
