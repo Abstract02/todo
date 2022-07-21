@@ -43,7 +43,7 @@ body {
   width: 20%;
 }
 .submit_task>button{
-  width: 100%;
+  width: 100px;
   height: 100%;
   background: #C620A7;
   color: #FFFFFF;
