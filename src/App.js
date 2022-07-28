@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import Task from './Components/Task';
@@ -6,7 +6,10 @@ import Task from './Components/Task';
 function App() {
 
   const [task, settask] = useState({})
-  const [data,setdata] = useState([])
+  const [data, setdata] = useState([])
+  const [renderTasks, setrenderTasks] = useState([])
+  const [filter,setfilter] = useState(false)
+  var t=0
 
   const handleChange = (e) => {
     settask(
@@ -17,15 +20,20 @@ function App() {
   useEffect(() => {
     axios
       .get("https://to-do-appp.herokuapp.com/todos")
-      .then((res)=>{
+      .then((res) => {
         const data = res.data;
         setdata(data);
+        console.log(filter)
       })
-      .catch((err)=>{console.log(err)})
-  }, [])
+      .catch((err) => { console.log(err) })
+  }, [filter])
   
-  function submit() {
+  function Check(){
+    filter?setfilter(false):setfilter(true)
     
+  }
+  function submit() {
+    console.log(filter)
     const todoTask = {
       title: task,
     }
@@ -67,28 +75,58 @@ function App() {
       <div className='tasks_section'>
         <div className='taskSectionTitle'>
           <p>Added task in to-do list</p>
+          <div className='filter'>
+              <input type="checkbox" onClick={Check} />
+              <label>Incomplete Tasks Only</label>
+          </div>
         </div>
         <div className='tasksContainer'>
           {
-            data.map((taskdata,i) => {
-              return(
+            data.map((taskdata, i) => {
+              {
+                if(filter==true){
+                  if(taskdata.completed==false)
+                  {
+                    t=t+1
+              return (
                 <>
-                <div className='content'>
-                <div className='index'>
-                  <p>
-                  {i+1}.
-                  </p>
-                </div>
-                <Task
-                id = {taskdata._id}
-                title = {taskdata.title}
-                completed = {taskdata.completed}
-                /> 
-                </div>
+                  <div className='content'>
+                    <div className='index'>
+                      <p>
+                        {t}.
+                      </p>
+                    </div>
+                    <Task
+                      id={taskdata._id}
+                      title={taskdata.title}
+                      completed={taskdata.completed}
+                    />
+                  </div>
                 </>
               )
+                  }
+                }
+                else{
+                  return (
+                    <>
+                      <div className='content'>
+                        <div className='index'>
+                          <p>
+                            {i + 1}.
+                          </p>
+                        </div>
+                        <Task
+                          id={taskdata._id}
+                          title={taskdata.title}
+                          completed={taskdata.completed}
+                        />
+                      </div>
+                    </>
+                  )
+                }
+              }
             })
-          }          
+          }
         </div>
       </div>
     </div>
